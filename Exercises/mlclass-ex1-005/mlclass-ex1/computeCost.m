@@ -13,9 +13,10 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
+predictValues = X*theta;   % no need for theta transpose, compute (mx2)*(2x1)
+squareRootErrors = (predictValues - y) .^ 2;
 
-
-
+J = sum(squareRootErrors) / (2*m);
 
 % =========================================================================
 

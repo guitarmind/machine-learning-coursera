@@ -26,10 +26,24 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+% m=10, n=2, D(X)= mxn = 10x2, D(mu)=2x1, D(sigma)=2x1
 
+mu = mean(X);
+sigma = std(X);
 
+% fprintf('Debug ...\n')
+% mu
+% sigma
 
+% compute element-wise subtraction
+loopN = 1:size(X, 2);
+for i = loopN,
+  XminusMean = X(:, i) - mu(i);
+  X_norm(:, i) = XminusMean / sigma(i);
+end
 
+% show result
+X_norm;
 
 
 

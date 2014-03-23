@@ -13,9 +13,18 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
+% featureN = size(X, 2);
+% J = zeros(featureN, 1);
+% X
+% theta
 
+%for i=1:featureN,
+%  predictValues = X(:, i)*theta(i);   % no need for theta transpose, compute (mx3)*(3x1)
+%  squareRootErrors = (predictValues - y) .^ 2;
+%  J(i) = sum(squareRootErrors) / (2*m);
+% end
 
-
+J = sum((X * theta - y) .^ 2) / (2*m);
 
 % =========================================================================
 

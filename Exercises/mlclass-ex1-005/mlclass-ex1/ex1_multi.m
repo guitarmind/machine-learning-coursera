@@ -106,6 +106,18 @@ fprintf('\n');
 % not need to be normalized.
 price = 0; % You should change this
 
+% Important: need to normalize the value of new x
+testX = [1650, 3];
+testNormX = testX;
+loopN = 1:2;
+for i = loopN,
+  XminusMean = testX(:, i) - mu(i);
+  testNormX(:, i) = XminusMean / sigma(i);
+end
+
+% Add intercept term for X0
+testNormX = [ones(1,1) testNormX]
+price = testNormX * theta;
 
 % ============================================================
 
@@ -151,6 +163,7 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 price = 0; % You should change this
 
+price = [1, 1650, 3] * theta;
 
 % ============================================================
 
